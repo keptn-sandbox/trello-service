@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trello-service
+  namespace: keptn
+spec:
+  selector:
+    matchLabels:
+      run: trello-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: trello-service
+    spec:
+      containers:
+      - name: trello-service
+        image: adamgardnerdt/keptn-trello-service
+        ports:
+        - containerPort: 80
+        env:
+        - name: TRELLO_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: trello-details
+              key: api-key
+        - name: TRELLO_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: trello-details
+              key: api-token
+        - name: TRELLO_BOARD_ID
+          valueFrom:
+            secretKeyRef:
+              name: trello-details
+              key: board-id
+        - name: TRELLO_LIST_NAME
+          valueFrom:
+            secretKeyRef:
+              name: trello-details
+              key: list-name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trello-service
+  namespace: keptn
+  labels:
+    run: trello-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: trello-service
