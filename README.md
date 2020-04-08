@@ -21,13 +21,6 @@ eg. ('To Do')
 
 ![trello board details](assets/trello-service-3.png)
 
-# Debugging
-A debug log is available in the `trello-service` pod at `/var/www/html/logs/trelloService.log`
-
-```
-kubectl exec -itn keptn trello-service-*-* cat /var/www/html/logs/trelloService.log
-```
-
 # Save Trello Details as k8s Secret
 Paste your values into the command below (replacing `***`) and save the Trello details into a secret called `trello-details` in the `keptn` namespace.
 
@@ -73,6 +66,13 @@ Note: You must have your services tagged with `keptn_deployment`, `keptn_project
 
 ```
 keptn send event start-evaluation --project=*** --stage=*** --service=*** --timeframe=2m
+```
+
+# Debugging
+A debug log is available in the `trello-service` pod at `/var/www/html/logs/trelloService.log`
+
+```
+kubectl exec -itn keptn trello-service-*-* cat /var/www/html/logs/trelloService.log
 ```
 
 # Compatibility Matrix
