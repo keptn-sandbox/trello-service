@@ -1,4 +1,9 @@
 # Keptn Trello Service
+
+> :warning: This service is now deprecated and will no longer receive support / updates.
+> 
+> Author recommends you use the Trello webhook integration (found [here](https://keptn.sh/docs/integrations/) [search for "trello"] ) as it is much more flexible
+
 This Keptn Service integrates Atlassian Trello with Keptn.
 
 This keptn service creates cards on Trello boards when a keptn evaluation (`sh.keptn.event.start-evaluation`) is performed. The service subscribes to the following keptn events:
