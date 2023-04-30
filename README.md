@@ -3,6 +3,9 @@
 > :warning: This service is now deprecated and will no longer receive support / updates.
 > 
 > Author recommends you use the Trello webhook integration (found [here](https://keptn.sh/docs/integrations/) [search for "trello"] ) as it is much more flexible
+>
+> Alternatively, if you are Kubernetes native, use the [Keptn Lifecycle Toolkit](https://lifecycle.keptn.sh) instead.
+
 
 This Keptn Service integrates Atlassian Trello with Keptn.
 
